@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+</head>
+<body>
+    <aside>
+        <img src="{% static 'main/img/mox.png '%}" alt="лого">
+        <span class="logo">MoX</span>
+        <h3>Навигация</h3>
+        <ul>
+            <a href="{% url 'home' %}"><li><i class="fa-solid fa-house"></i> Home</li></a>
+            <a href="{% url 'about' %}"><li><i class="fa-solid fa-user"></i> About me</li></a>
+            <a href="{% url 'news_home' %}"><li> News</li></a>
+            <a href="{% url 'contacts' %}"><li><i class="fa-solid fa-address-book"></i> Contacts</li></a>
+            <a href="{% url 'create' %}"><li><button class="btn btn-info"> + Добавить новость</button></li></a>
+        </ul>
+        <style>
+          a {
+          text-decoration: none;
+          }
+        </style>
+    </aside>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+</body>
+</html>
